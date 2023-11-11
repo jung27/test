@@ -27,7 +27,7 @@ dependencies {
     implementation(kotlin("reflect"))
     paperweight.paperDevBundle(libs.versions.paper)
 
-//    implementation("io.github.monun:kommand-api:latest.release")
+    implementation("io.github.monun:kommand-api:3.1.7")
 //    implementation("io.github.monun:tap-api:latest.release")
 //    implementation("io.github.monun:invfx-api:latest.release")
 //    implementation("io.github.monun:heartbeat-coroutines:latest.release")
@@ -52,7 +52,7 @@ extra.apply {
 
         if (group == "org.jetbrains.kotlin" && version == null) {
             version = getKotlinPluginVersion()
-        } else if (group == "io.github.monun.tap" && name.endsWith("-api")) {
+        } else if (group == "io.github.monun" && name.endsWith("-api")) {
             name = name.removeSuffix("api") + "core"
         }
 
@@ -110,6 +110,8 @@ tasks {
             }
         }
     }
+
+    registerJar("dev", false)
 //
 //    fun registerJar(
 //        classifier: String,
